@@ -1,0 +1,157 @@
+  *{
+margin :0px;
+padding: 0px;
+box-sizing: border-box;
+font-family: sans-serif;
+  }
+nav .navigation-Menu{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ /* min-height: 8vh; */
+  height:8vh;
+  background-color:#f7f7f7;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container{
+  color: rgb(226, 226, 226);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+.nav-links{
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.nav-links li{
+  list-style: none;
+}
+
+.nav-links a{
+  color: rgb(26, 22, 22);
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.burger{
+  display: none;
+  cursor: pointer;
+}
+
+.burger div{
+  width: 25px;
+  height: 3px;
+  background-color: rgb(65, 55, 55);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width:1024px){
+  .nav-links{
+    width: 60%;
+  }
+}
+
+  @media screen and (max-width:768px){
+    body{
+      overflow-x: hidden;
+    }
+  .nav-links{
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: #e2e4e3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav-links li{
+    opacity: 0;
+  }
+  .burger{
+    display: block;
+  }
+  }
+
+  .nav-active{
+    transform: translateX(0%);
+  }
+
+  @keyframes navLinkFade{
+    from{
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  .toggle .line1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toggle .line2{
+    opacity: 0;
+  }
+  .toggle .line3{
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .container2{
+    margin :5px;
+    padding: 5px;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%; 
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  
+  nav .filter-menu{
+    position: fixed;
+    top: 8vh;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #e2e1e1;
+    border-right: 1px solid #333;
+    display:flex;
+    flex-direction: column;
+    padding: 8px;
+  /*  align-items: center;
+   /* justify-content: center;*/
+}
+nav img{
+    width: 90%;
+    display:block;
+    margin-bottom: 8px;
+    align-self: center;
+}
+
+main{
+    margin-left: 250px;
+    padding: 8px;
+}

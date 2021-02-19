@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Statcube</title>
+     <!--   <link rel="stylesheet" href="file.css"/>
+        <link rel="stylesheet" href="assets/stylesheets/style.css">
+
+        <link rel="stylesheet " href="//use.fontawesome.com/releases/v5.0.7/css/all.css ">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/stylesheets/normalize.css">
+  
+        <script src="assets/javascript/jQueryA.js"></script>
+        <link rel="stylesheet" href="assets/stylesheets/style.css">
+        <script src="assets/javascript/jquery-ui.js"></script>
+        <link href="assets/stylesheets/jquery-ui.css" rel="stylesheet">
+      <!-- <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    -->   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      
+    </head>
+    <body>
+        <nav>
+        <div class="navigation-Menu">
+            <div class="container">
+                <img src="images/logos/stat_logo_sm.gif" alt="Statcube-logo" style="margin-top: 10px;"/>
+            </div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html" >Wohnen </a>
+                        <!--class="category stat-wohnen"></a>
+                            <img src="images/logos/wohnen.png"><br>
+                            Wohnen
+                           </a> -->
+                    </li>
+                    <li>
+                        <a href="arbeitmarkt.html">Arbeitsmarkt</a>
+                    </li>
+                    <li>
+                        <a href="kultur.html">Kultur</a>
+                    </li>
+                    <li>
+                        <a href="bildung.html">Bildung</a>
+                    </li>
+                </ul>
+            
+        
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        
+            
+        
+            <script src="assets/javascript/main.js"></script> 
+        </div>
+    
+        <div class="filter-menu">
+        <img src="images/logos/icon_wohnen.jpg" alt="stat-wohnen"/>
+     
+        <div class="inline">
+            <label>Min Bedrooms:</label>
+            <input  id="spinner" value="3"><br><br>
+            <label>Max Bedrooms:</label>
+            <input  id="spinner2" value="3">
+        </div>
+
+        <br>
+        <div class="dropdown">
+     <label>Property type:</label><br>
+    <select name="property" id="property"class="dropdown-content">
+      <option value="Flat">Flat</option>
+      <option value="House">House</option>
+      <option value="Any" selected>Any</option>
+    </select>
+        </div>
+<br>
+   <div class="Time">
+     <label>Time Added</label>
+     <select name="time" id="time">
+      <option value="January", "Feburary", "March", "April"> January - April (2021)</option>
+      <option value="May", "June", "July", "August">May - August (2020)</option>
+      <option value="September", "October", "November", "December">September - December (2014)</option>
+      <option value="Anytime" selected>Anytime</option>
+     </select>
+    </div> 
+<br>
+  <p class="box">  
+    <label>Price Range</label>
+    <input type="text" id="amount" readonly class="goldSliderText">
+    </p><br>
+    <div id="slider-range"></div>
+      
+    <br><br>
+    
+   <button id="Search">Search</button>
+  
+        </div>
+
+  
+   <script>
+   
+   var data = { 
+   
+       "properties": [
+           {
+               "id":"prop1",
+               "type":"House",
+               "bedrooms":3,
+               "price":650000,
+               "tenure":"Freehold",
+               "description":"Die Hälfte der Haushalte in Eigentum wendete monatlich bis zu 419 Euro (Haus) bzw. 443 Euro (Wohnung)fürs Wohnen auf",
+               "location":"Petts Wood Road, Petts Wood, Orpington",
+               "picture":"images/prop1picsmall.png",
+               "url":"http://www.statistik.at/web_de/statistiken/menschen_und_gesellschaft/wohnen/wohnkosten/index.html",
+               "added": {
+                   "month":"January",
+                   "day":12,
+                   "year":2021
+               }
+           },
+           {
+               "id":"prop2",
+               "type":"Flat",
+               "bedrooms":2,
+               "price":299995,
+               "tenure":"Freehold",
+               "description":"Die höchsten Ausgaben pro Haushalt entfielen auf Wohnungen in privater Hauptmiete (Median: 690 Euro).",
+               "location":"Crofton Road, Orpington, BR6",
+               "picture":"images/prop2picsmall.png",
+               "url":"http://www.statistik.at/web_de/statistiken/menschen_und_gesellschaft/wohnen/wohnkosten/index.html",
+               "added": {
+                   "month":"September",
+                   "day":14,
+                   "year":2020
+               }
+           },
+           {
+               "id":"prop3",
+               "type":"Flat",
+               "bedrooms":5,
+               "price":466100,
+               "tenure":"Freehold",
+               "description":"Quadratmeterkosten: 3,1 Euro betrugen die Wohnkosten pro Quadratmeter bei in Eigentum bewohnten Häusern, 5,5 Euro in Eigentumswohnungen und 11,2 Euro waren für private Hauptmietwohnungen pro Quadratmeter zu bezahlen (jeweils Median).",
+               "location":"High Road, Ilford, IG1",
+               "picture":"images/prop3picsmall.png",
+               "url":"http://www.statistik.at/web_de/statistiken/menschen_und_gesellschaft/wohnen/wohnkosten/index.html",
+               "added": {
+                   "month":"November",
+                   "day":24,
+                   "year":2020
+               }
+           },
+           {
+               "id":"prop4",
+               "type":"House",
+               "bedrooms":7,
+               "price":557000,
+               "tenure":"Freehold",
+               "description":"Quadratmeterkosten: 3,1 Euro betrugen die Wohnkosten pro Quadratmeter bei in Eigentum bewohnten Häusern, 5,5 Euro in Eigentumswohnungen und 11,2 Euro waren für private Hauptmietwohnungen pro Quadratmeter zu bezahlen (jeweils Median).",
+               "location":"Prince Regent Street, Newham, E16",
+               "picture":"images/prop4picsmall.png",
+               "url":"http://www.statistik.at/web_de/statistiken/menschen_und_gesellschaft/wohnen/wohnkosten/index.html",
+               "added": {
+                   "month":"April",
+                   "day":19,
+                   "year":2021
+               }
+           },
+           {
+               "id":"prop5",
+               "type":"Flat",
+               "bedrooms":11,
+               "price":600100,
+               "tenure":"Freehold",
+               "description":"Quadratmeterkosten: 3,1 Euro betrugen die Wohnkosten pro Quadratmeter bei in Eigentum bewohnten Häusern, 5,5 Euro in Eigentumswohnungen und 11,2 Euro waren für private Hauptmietwohnungen pro Quadratmeter zu bezahlen (jeweils Median).",
+               "location":"Green Lane, Seven Kings, IG6",
+               "picture":"images/prop5picsmall.png",
+               "url":"http://www.statistik.at/web_de/statistiken/menschen_und_gesellschaft/wohnen/wohnkosten/index.html",
+               "added": {
+                   "month":"June",
+                   "day":10,
+                   "year":2020
+               }
+           },
+           {
+               "id":"prop6",
+               "type":"House",
+               "bedrooms":9,
+               "price":300400,
+               "tenure":"Freehold",
+               "description":"Quadratmeterkosten: 3,1 Euro betrugen die Wohnkosten pro Quadratmeter bei in Eigentum bewohnten Häusern, 5,5 Euro in Eigentumswohnungen und 11,2 Euro waren für private Hauptmietwohnungen pro Quadratmeter zu bezahlen (jeweils Median).",
+              "location":"Romford Road, Newham",
+               "picture":"images/prop6picsmall.png",
+               "url":"http://www.statistik.at/web_de/statistiken/menschen_und_gesellschaft/wohnen/wohnkosten/index.html",
+               "added": {
+                   "month":"August",
+                   "day":17,
+                   "year":2020
+               }
+           },
+           {
+               "id":"prop7",
+               "type":"House",
+               "bedrooms":6,
+               "price":299550,
+               "tenure":"Freehold",
+               "description":"Die höchsten Ausgaben pro Haushalt entfielen auf Wohnungen in privater Hauptmiete (Median: 690 Euro).",
+               "location":"Stonley Road, Woodford",
+               "picture":"images/prop7picsmall.png",
+               "url":"http://www.statistik.at/web_de/statistiken/menschen_und_gesellschaft/wohnen/wohnkosten/index.html",
+               "added": {
+                   "month":"March",
+                   "day":27,
+                   "year":2021
+               }
+           }
+   ]}
+   
+   </script>
+
+</nav>
+     <main>
+         
+          <div id="Placeholder"></div>
+         </main>
+    
+    </body>
+</html>

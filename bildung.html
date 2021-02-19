@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Statcube</title>
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/stylesheets/normalize.css">
+        <script src="assets/javascript/jQueryBuildung.js"></script>
+        <link rel="stylesheet" href="assets/stylesheets/style.css">
+        <script src="assets/javascript/jquery-ui.js"></script>
+        <link href="assets/stylesheets/jquery-ui.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      
+    </head>
+    <body>
+        <nav>
+        <div class="navigation-Menu">
+            <div class="container">
+                <img src="images/logos/stat_logo_sm.gif" alt="Statcube-logo" style="margin-top: 10px;"/>
+            </div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html" >Wohnen </a>
+                        <!--class="category stat-wohnen"></a>
+                            <img src="images/logos/wohnen.png"><br>
+                            Wohnen
+                           </a> -->
+                    </li>
+                    <li>
+                        <a href="arbeitmarkt.html">Arbeitsmarkt</a>
+                    </li>
+                    <li>
+                        <a href="kultur.html">Kultur</a>
+                    </li>
+                    <li>
+                        <a href="bildung.html">Bildung</a>
+                    </li>
+                </ul>
+            
+        
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <script src="assets/javascript/main.js"></script> 
+        </div>
+    
+        <div class="filter-menu">
+        <img src="images/logos/bildungs.png" alt="stat-bildung"/>
+        
+
+        <br>
+        <div >
+     <label>Studium type:</label><br>
+    <select name="entity" id="entity">
+      <option value="Lehre">Lehre</option>
+      <option value="AHS">AHS</option>
+      <option value="Hochschule">Hochschule</option>
+      <option value="Sonstige-Ausbuildung" selected>Sonstige Ausbuildung</option>
+    </select>
+        </div>
+<br>
+<div >
+    <label>Ausbildungsfeld:</label><br>
+   <select name="ausbildungsfeld" id="ausbildungsfeld">
+     <option value="Pädagogik">Pädagogik</option>
+     <option value="Wirtschaft">Wirtschaft</option>
+     <option value="Landwirtschaft">Landwirtschaft</option>
+     <option value="Gesundheit">Gesundheit</option>
+     <option value="Informatik">Informatik</option>
+     <option value="AllgemineBuildungs" selected>Allgemine Buildungs  </option>
+   </select>
+       </div>
+       <br>
+       <div >
+        <label>Wohnort:</label><br>
+       <select name="wohnort" id="wohnort">
+         <option value="Wien">Wien</option>
+         <option value="Burgenland">Burgenland</option>
+         <option value="Niederoestrreich"selected>Niederösterreich</option>
+       </select>
+           </div>
+<br><br>
+     
+
+   <button id="Search">Search</button>
+  
+        </div>
+
+  
+   <script>
+   
+   var data = { 
+   
+       "properties": [
+           {
+               "id":"prop1",
+               "type":"Lehre",
+               "Institute":"Wifi-Institute",
+               "cost":5000,
+               "numberofstudent": 872,
+               "wohnort":"Wien",
+               "Ausbildungsfeld":"Gesundheit",
+               "description":"Rund 3.000 Kurse, Seminare und Lehrgänge – und damit genauso viele Wege, um sich zu entwickeln. Als größter Anbieter für berufliche Aus- und Weiterbildung ist das WIFI Wien der optimale Begleiter beim lebenslangen Lernen.",
+               "location":"Währinger Gürtel 97, 1180 Wien",
+               "picture":"images/buildungs/logo-WIFI-large.gif",
+               "url":"https://www.wifiwien.at/"
+           },
+           {
+               "id":"prop2",
+               "type":"AHS",
+               "Institute":"AHS-Wien-West",
+               "cost":3000,
+               "numberofstudent": 1072,
+               "wohnort":"Wien",
+               "Ausbildungsfeld":"Pädagogik",
+               "description":"Rund 3.000 Kurse, Seminare und Lehrgänge – und damit genauso viele Wege, um sich zu entwickeln. Als größter Anbieter für berufliche Aus- und Weiterbildung ist das WIFI Wien der optimale Begleiter beim lebenslangen Lernen.",
+               "location":"Steinbruchstraße 33, 1140 Wien",
+               "picture":"images/buildungs/logogahs14.png",
+               "url":"https://www.ahs-wienwest.at/ahs14/index.php"
+           },
+           {
+               "id":"prop3",
+               "type":"Hochschule",
+               "Institute":"AHS-Wien-West",
+               "cost":3000,
+               "numberofstudent": 1072,
+               "wohnort":"Wien",
+               "Ausbildungsfeld":"Pädagogik",
+               "description":"Rund 3.000 Kurse, Seminare und Lehrgänge – und damit genauso viele Wege, um sich zu entwickeln. Als größter Anbieter für berufliche Aus- und Weiterbildung ist das WIFI Wien der optimale Begleiter beim lebenslangen Lernen.",
+               "location":"Steinbruchstraße 33, 1140 Wien",
+               "picture":"images/buildungs/logogahs14.png",
+               "url":"https://www.ahs-wienwest.at/ahs14/index.php"
+           },
+           {
+               "id":"prop4",
+               "type":"Hochschule",
+               "Institute":"AHS-Wien-West",
+               "cost":3000,
+               "numberofstudent": 1072,
+               "wohnort":"Wien",
+               "Ausbildungsfeld":"Pädagogik",
+               "description":"Rund 3.000 Kurse, Seminare und Lehrgänge – und damit genauso viele Wege, um sich zu entwickeln. Als größter Anbieter für berufliche Aus- und Weiterbildung ist das WIFI Wien der optimale Begleiter beim lebenslangen Lernen.",
+               "location":"Steinbruchstraße 33, 1140 Wien",
+               "picture":"images/buildungs/logogahs14.png",
+               "url":"https://www.ahs-wienwest.at/ahs14/index.php"
+           },
+           {
+               "id":"prop5",
+               "type":"Hochschule",
+               "Institute":"AHS-Wien-West",
+               "cost":3000,
+               "numberofstudent": 600,
+               "wohnort":"Niederoesterreich",
+               "Ausbildungsfeld":"Wirtschaft",
+               "description":"Rund 3.000 Kurse, Seminare und Lehrgänge – und damit genauso viele Wege, um sich zu entwickeln. Als größter Anbieter für berufliche Aus- und Weiterbildung ist das WIFI Wien der optimale Begleiter beim lebenslangen Lernen.",
+               "location":"Steinbruchstraße 33, 1140 Wien",
+               "picture":"images/buildungs/logogahs14.png",
+               "url":"https://www.ahs-wienwest.at/ahs14/index.php"
+           },
+           {
+               "id":"prop6",
+               "type":"Hochschule",
+               "Institute":"AHS-Wien-West",
+               "cost":3000,
+               "numberofstudent": 650,
+               "wohnort":"Burgenland",
+               "Ausbildungsfeld":"Informatik",
+               "description":"Rund 3.000 Kurse, Seminare und Lehrgänge – und damit genauso viele Wege, um sich zu entwickeln. Als größter Anbieter für berufliche Aus- und Weiterbildung ist das WIFI Wien der optimale Begleiter beim lebenslangen Lernen.",
+               "location":"Steinbruchstraße 33, 1140 Wien",
+               "picture":"images/buildungs/logogahs14.png",
+               "url":"https://www.ahs-wienwest.at/ahs14/index.php"
+           },
+           {
+               "id":"prop7",
+               "type":"Hochschule",
+               "Institute":"FH Technikum Wien",
+               "cost":650,
+               "numberofstudent": 930,
+               "wohnort":"Wien",
+               "Ausbildungsfeld":"Pädagogik",
+               "description":"Didaktische Vielfalt scheint in der Hochschuldidaktik in unterschiedlichen Formen auf. Lehrende an Hochschulen nehmen nicht nur vielfältige Rollen ein, sondern leben auch die angewandte Methoden-Vielfalt im Zuge der Hochschullehre. ",
+               "location":"Höchstädtplatz 6, 1200 Wien",
+               "picture":"images/buildungs/logo-300x160_1.png",
+               "url":"https://www.technikum-wien.at/"
+           }
+   ]}
+   
+   </script>
+
+</nav>
+     <main>
+         
+          
+          <div><img src="images/logos/logo_statistik.gif" alt="statistic"/></div>
+          <div><p>Bildung ist eines der wesentlichen Merkmale für die Beurteilung des Humankapitals, welches einer Gesellschaft zur Verfügung steht.
+               Aufgabe der Bildungsstatistik ist es, bildungsrelevante Informationen zu erheben, zu analysieren und in möglichst kompakter Form darzustellen.</p></div>
+               <div id="Placeholder"></div>
+            </main>
+    <!--    <script src="file.js"></script> -->
+    </body>
+</html>
